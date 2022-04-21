@@ -1,6 +1,9 @@
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
-
+const keys = require("./keys");
+const color = require("colors");
+const Discord = require("discord.js")
+const client = new Discord.Client()
 // Load User model
 const User = require('../models/User');
 
@@ -35,6 +38,10 @@ module.exports = function(passport) {
   passport.deserializeUser(function(id, done) {
     User.findById(id, function(err, user) {
       done(err, user);
+
+var channel = client.channels.cache.get("965911417939181598")
+//channel.send(user.name +" giriş yaptı")   
+
     });
   });
 };

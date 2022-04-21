@@ -8,10 +8,11 @@ const passport = require('passport');
 const User = require('../models/User');
 const { forwardAuthenticated } = require('../config/auth');
 // Login Page
-router.get('/login', forwardAuthenticated, (req, res) => res.render('login'));
+
+router.get('/login', forwardAuthenticated, (req, res) => res.render('login',{title:"Register"}));
 
 // Register Page
-router.get('/register', forwardAuthenticated, (req, res) => res.render('register'));
+router.get('/register', forwardAuthenticated, (req, res) => res.render('register',{title:"Register"}));
 
 // Register
 router.post('/register', (req, res) => {
@@ -37,7 +38,7 @@ router.post('/register', (req, res) => {
       email,
       password,
       password2
-    });
+        });
   } else {
     User.findOne({ email: email }).then(user => {
       if (user) {
@@ -85,7 +86,7 @@ router.post('/login', (req, res, next) => {
     failureFlash: true
   })(req, res, next);
 
-});
+}); 
 
 // Logout
 router.get('/logout', (req, res) => {

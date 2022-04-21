@@ -1,0 +1,76 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://bootswatch.com/4/journal/bootstrap.min.css"
+    />
+    <title>WebGift | <% title %></title>
+        <ul>
+            <li><a class="button-normal">Home</a></li>
+
+            <% if(user.isAdmin == true) { %>
+            <li> <a href="/admin/add" class="button-normal">Admin</a></li>
+
+            <% } %>
+            <li><a href="/users/logout" class="button-red">Logout</a>  </li>    
+            <li><a class="button-normal" onclick="myFunction()">Dark Mode</a></li>
+                
+        </ul>
+
+</head>
+<script>
+    function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+    }
+  
+    </script>
+<style>
+    body {
+    background-color: white;
+    color: black;
+    font-size: 25px;
+  }
+  
+  .dark-mode {
+    background-color: #333;
+    color: white;
+  }
+  
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #444;
+  height: 60;
+}
+
+ li {
+  float: left;
+}
+
+ li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+}
+
+/* Change the link color to #111 (black) on hover */
+ li a:hover {
+  display: block;
+  background-color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  color:white;
+}
+
+
+</style>
